@@ -2,6 +2,7 @@ package com.example.user.mrpill;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,13 +15,15 @@ import java.util.Random;
 
 public class OticOphthalmicQuiz extends AppCompatActivity implements View.OnClickListener{
     Button btn_one, btn_two, btn_three, btn_four;
-    TextView otic_ophthalmic_quiz;
+    TextView otic_ophthalmic_quiz, label;
+    CountDownTimer mCountDownTimer;
 
     private OticOphthalmicQuestion question = new OticOphthalmicQuestion();
 
     private String answer;
     private int questionLength = question.questions.length;
     private int questionNumber = 0;
+    public int counter = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,19 @@ public class OticOphthalmicQuiz extends AppCompatActivity implements View.OnClic
         otic_ophthalmic_quiz = (TextView)findViewById(R.id.otic_ophthalmic_quiz);
 
         NextQuestion(questionNumber++);
+        label = (TextView) findViewById(R.id.timer);
+        mCountDownTimer = new CountDownTimer(10000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                label.setText("Timer:" + String.valueOf(counter));
+                counter--;
+            }
+            public void onFinish() {
+                if (counter == 0){
+                    GameOver();
+                }
+            }
+        }.start();
     }
 
     @Override
@@ -49,6 +65,23 @@ public class OticOphthalmicQuiz extends AppCompatActivity implements View.OnClic
                     Toast.makeText(OticOphthalmicQuiz.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                     if (questionNumber < questionLength) {
                         NextQuestion(questionNumber++);
+                        label = (TextView) findViewById(R.id.timer);
+                        if (mCountDownTimer != null) {
+                            mCountDownTimer.cancel();
+                            counter = 10;
+                        }
+                        mCountDownTimer = new CountDownTimer(10000,1000) {
+                            @Override
+                            public void onTick(long millisUntilFinished) {
+                                label.setText("Timer:" + String.valueOf(counter));
+                                counter--;
+                            }
+                            public void onFinish() {
+                                if (counter == 0) {
+                                    GameOver();
+                                }
+                            }
+                        }.start();
                     }else if (questionNumber == questionLength){
                         Won();
                     }
@@ -63,6 +96,23 @@ public class OticOphthalmicQuiz extends AppCompatActivity implements View.OnClic
                     Toast.makeText(OticOphthalmicQuiz.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                     if (questionNumber < questionLength) {
                         NextQuestion(questionNumber++);
+                        label = (TextView) findViewById(R.id.timer);
+                        if (mCountDownTimer != null) {
+                            mCountDownTimer.cancel();
+                            counter = 10;
+                        }
+                        mCountDownTimer = new CountDownTimer(10000,1000) {
+                            @Override
+                            public void onTick(long millisUntilFinished) {
+                                label.setText("Timer:" + String.valueOf(counter));
+                                counter--;
+                            }
+                            public void onFinish() {
+                                if (counter == 0) {
+                                    GameOver();
+                                }
+                            }
+                        }.start();
                     }else if (questionNumber == questionLength){
                         Won();
                     }
@@ -77,6 +127,23 @@ public class OticOphthalmicQuiz extends AppCompatActivity implements View.OnClic
                     Toast.makeText(OticOphthalmicQuiz.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                     if (questionNumber < questionLength) {
                         NextQuestion(questionNumber++);
+                        label = (TextView) findViewById(R.id.timer);
+                        if (mCountDownTimer != null) {
+                            mCountDownTimer.cancel();
+                            counter = 10;
+                        }
+                        mCountDownTimer = new CountDownTimer(10000,1000) {
+                            @Override
+                            public void onTick(long millisUntilFinished) {
+                                label.setText("Timer:" + String.valueOf(counter));
+                                counter--;
+                            }
+                            public void onFinish() {
+                                if (counter == 0) {
+                                    GameOver();
+                                }
+                            }
+                        }.start();
                     }else if (questionNumber == questionLength){
                         Won();
                     }
@@ -91,6 +158,23 @@ public class OticOphthalmicQuiz extends AppCompatActivity implements View.OnClic
                     Toast.makeText(OticOphthalmicQuiz.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                     if (questionNumber < questionLength) {
                         NextQuestion(questionNumber++);
+                        label = (TextView) findViewById(R.id.timer);
+                        if (mCountDownTimer != null) {
+                            mCountDownTimer.cancel();
+                            counter = 10;
+                        }
+                        mCountDownTimer = new CountDownTimer(10000,1000) {
+                            @Override
+                            public void onTick(long millisUntilFinished) {
+                                label.setText("Timer:" + String.valueOf(counter));
+                                counter--;
+                            }
+                            public void onFinish() {
+                                if (counter == 0) {
+                                    GameOver();
+                                }
+                            }
+                        }.start();
                     }else if (questionNumber == questionLength){
                         Won();
                     }
