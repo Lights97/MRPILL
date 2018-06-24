@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_coughCold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="coughColdButton"
+        android:text="Cough and Cold" />
+
+    <Button
+        android:id="@+id/btn_oticOphthalmic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="oticOphthalmicButton"
+        android:text="Otic and Ophthalmic" />
+
+    <Button
+        android:id="@+id/btn_pain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="painButton"
+        android:text="Pain" />
+
+    <Button
+        android:id="@+id/btn_gastrointestinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="gastrointestinalButton"
+        android:text="Gastrointestinal" />
+
+    <Button
+        android:id="@+id/btn_skinConditions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="skinConditionsButton"
+        android:text="Skin Conditions"/>
+
+</LinearLayout>
