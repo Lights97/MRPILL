@@ -2,7 +2,9 @@ package com.example.user.mrpill;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +54,7 @@ public class GastrointestinalQuiz extends AppCompatActivity implements View.OnCl
             }
             public void onFinish() {
                 if (counter == 0){
+                    label.setText("Timer:0");
                     GameOver();
                 }
             }
@@ -64,30 +67,37 @@ public class GastrointestinalQuiz extends AppCompatActivity implements View.OnCl
         switch (v.getId()){
             case R.id.btn_one:
                 if(btn_one.getText() == answer){
+                    btn_one.setBackgroundColor(Color.GREEN);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn_one.setBackgroundColor(Color.LTGRAY);
+                        }
+                    }, 200);
                     Toast.makeText(GastrointestinalQuiz.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                     if (questionNumber < questionLength) {
                         NextQuestion(questionNumber++);
                         label = (TextView) findViewById(R.id.timer);
+                        ResetTime();
+                    }else if (questionNumber == questionLength){
                         if (mCountDownTimer != null) {
                             mCountDownTimer.cancel();
-                            counter = 10;
                         }
-                        mCountDownTimer = new CountDownTimer(10000,1000) {
-                            @Override
-                            public void onTick(long millisUntilFinished) {
-                                label.setText("Timer:" + String.valueOf(counter));
-                                counter--;
-                            }
-                            public void onFinish() {
-                                if (counter == 0) {
-                                    GameOver();
-                                }
-                            }
-                        }.start();
-                    }else if (questionNumber == questionLength){
                         Won();
                     }
                 }else{
+                    btn_one.setBackgroundColor(Color.RED);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn_one.setBackgroundColor(Color.LTGRAY);
+                        }
+                    }, 200);
+                    if (mCountDownTimer != null) {
+                        mCountDownTimer.cancel();
+                    }
                     GameOver();
                 }
 
@@ -95,30 +105,37 @@ public class GastrointestinalQuiz extends AppCompatActivity implements View.OnCl
 
             case R.id.btn_two:
                 if(btn_two.getText() == answer){
+                    btn_two.setBackgroundColor(Color.GREEN);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn_two.setBackgroundColor(Color.LTGRAY);
+                        }
+                    }, 200);
                     Toast.makeText(GastrointestinalQuiz.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                     if (questionNumber < questionLength) {
                         NextQuestion(questionNumber++);
                         label = (TextView) findViewById(R.id.timer);
+                        ResetTime();
+                    }else if (questionNumber == questionLength){
                         if (mCountDownTimer != null) {
                             mCountDownTimer.cancel();
-                            counter = 10;
                         }
-                        mCountDownTimer = new CountDownTimer(10000,1000) {
-                            @Override
-                            public void onTick(long millisUntilFinished) {
-                                label.setText("Timer:" + String.valueOf(counter));
-                                counter--;
-                            }
-                            public void onFinish() {
-                                if (counter == 0) {
-                                    GameOver();
-                                }
-                            }
-                        }.start();
-                    }else if (questionNumber == questionLength){
                         Won();
                     }
                 }else{
+                    btn_two.setBackgroundColor(Color.RED);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn_two.setBackgroundColor(Color.LTGRAY);
+                        }
+                    }, 200);
+                    if (mCountDownTimer != null) {
+                        mCountDownTimer.cancel();
+                    }
                     GameOver();
                 }
 
@@ -126,30 +143,37 @@ public class GastrointestinalQuiz extends AppCompatActivity implements View.OnCl
 
             case R.id.btn_three:
                 if(btn_three.getText() == answer){
+                    btn_three.setBackgroundColor(Color.GREEN);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn_three.setBackgroundColor(Color.LTGRAY);
+                        }
+                    }, 200);
                     Toast.makeText(GastrointestinalQuiz.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                     if (questionNumber < questionLength) {
                         NextQuestion(questionNumber++);
                         label = (TextView) findViewById(R.id.timer);
+                        ResetTime();
+                    }else if (questionNumber == questionLength){
                         if (mCountDownTimer != null) {
                             mCountDownTimer.cancel();
-                            counter = 10;
                         }
-                        mCountDownTimer = new CountDownTimer(10000,1000) {
-                            @Override
-                            public void onTick(long millisUntilFinished) {
-                                label.setText("Timer:" + String.valueOf(counter));
-                                counter--;
-                            }
-                            public void onFinish() {
-                                if (counter == 0) {
-                                    GameOver();
-                                }
-                            }
-                        }.start();
-                    }else if (questionNumber == questionLength){
                         Won();
                     }
                 }else{
+                    btn_three.setBackgroundColor(Color.RED);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn_three.setBackgroundColor(Color.LTGRAY);
+                        }
+                    }, 200);
+                    if (mCountDownTimer != null) {
+                        mCountDownTimer.cancel();
+                    }
                     GameOver();
                 }
 
@@ -157,35 +181,62 @@ public class GastrointestinalQuiz extends AppCompatActivity implements View.OnCl
 
             case R.id.btn_four:
                 if(btn_four.getText() == answer){
+                    btn_four.setBackgroundColor(Color.GREEN);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn_four.setBackgroundColor(Color.LTGRAY);
+                        }
+                    }, 200);
                     Toast.makeText(GastrointestinalQuiz.this, "You Are Correct", Toast.LENGTH_SHORT).show();
                     if (questionNumber < questionLength) {
                         NextQuestion(questionNumber++);
                         label = (TextView) findViewById(R.id.timer);
+                        ResetTime();
+                    }else if (questionNumber == questionLength){
                         if (mCountDownTimer != null) {
                             mCountDownTimer.cancel();
-                            counter = 10;
                         }
-                        mCountDownTimer = new CountDownTimer(10000,1000) {
-                            @Override
-                            public void onTick(long millisUntilFinished) {
-                                label.setText("Timer:" + String.valueOf(counter));
-                                counter--;
-                            }
-                            public void onFinish() {
-                                if (counter == 0) {
-                                    GameOver();
-                                }
-                            }
-                        }.start();
-                    }else if (questionNumber == questionLength){
                         Won();
                     }
                 }else{
+                    btn_four.setBackgroundColor(Color.RED);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            btn_four.setBackgroundColor(Color.LTGRAY);
+                        }
+                    }, 200);
+                    if (mCountDownTimer != null) {
+                        mCountDownTimer.cancel();
+                    }
                     GameOver();
                 }
 
                 break;
         }
+    }
+
+    private void ResetTime() {
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+            counter = 10;
+        }
+        mCountDownTimer = new CountDownTimer(10000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                label.setText("Timer:" + String.valueOf(counter));
+                counter--;
+            }
+            public void onFinish() {
+                if (counter == 0) {
+                    label.setText("Timer:0");
+                    GameOver();
+                }
+            }
+        }.start();
     }
 
     private void Won() {
@@ -196,6 +247,10 @@ public class GastrointestinalQuiz extends AppCompatActivity implements View.OnCl
                 .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(GastrointestinalQuiz.this, MainActivity.class);
+                        intent.putExtra(MainActivity.TAG_ACTIVITY_FROM, "From stomach");
+                        startActivity(intent);
+                        finish();
                         System.exit(0);
                     }
                 });

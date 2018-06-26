@@ -18,6 +18,7 @@
         android:id="@+id/btn_oticOphthalmic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:enabled="false"
         android:onClick="oticOphthalmicButton"
         android:text="Otic and Ophthalmic" />
 

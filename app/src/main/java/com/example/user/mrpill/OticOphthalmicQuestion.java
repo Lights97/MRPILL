@@ -3,17 +3,23 @@ package com.example.user.mrpill;
 public class OticOphthalmicQuestion {
     public String questions[] = {
             "Which is a common feature of common cold?",
-            "Which is the usual distinguishing feature of allergic rhinitis from common cold?"
+            "Which is the usual distinguishing feature of allergic rhinitis from common cold?",
+            "What should you NOT do during a fever?",
+            "What should you do to avoid allergens?"
     };
 
     public String choices[][] = {
             {"Abrupt onset", "High fever", "Severe headache", "Sore throat"},
-            {"Nasal congestion", "Nose itch", "Sneezing", "Sore throat"}
+            {"Nasal congestion", "Nose itch", "Sneezing", "Sore throat"},
+            {"Drink plenty of water", "Rubbing alcohol on skin", "Tepid sponging with warm water", "Well-ventilated room"},
+            {"Air Conditioning","Try to avoid animals","Use of air filters","All of the above"}
     };
 
     public String correctAnswer[] = {
             "Sore throat",
-            "Nose itch"
+            "Nose itch",
+            "Rubbing alcohol on skin",
+            "All of the above"
     };
 
     public String getQuestion(int a){
