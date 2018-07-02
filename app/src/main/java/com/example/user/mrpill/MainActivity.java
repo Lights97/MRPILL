@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG_ACTIVITY_FROM = "WhichActivity";
@@ -65,47 +66,43 @@ public class MainActivity extends AppCompatActivity {
         mPreferences = getSharedPreferences(mSharedPrefFile, MODE_PRIVATE);
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
 
-        // Restore preferences
-        if (getIntent().getExtras() != null) {
-            if (mPreferences.getString(EYE_UNLOCKED, null).equals("eye_unlocked")) {
-                btn_otic_ophthalmic.setEnabled(true);
-                Log.i("infoState0", "eye");
-            }
-            if (mPreferences.getString(PAIN_UNLOCKED, null).equals("pain_unlocked")) {
-                btn_pain.setEnabled(true);
-                Log.i("infoState1", "pain");
-            }
-            if (mPreferences.getString(STOMACH_UNLOCKED, null).equals("stomach_unlocked")) {
-                btn_gastrointestinal.setEnabled(true);
-                Log.i("infoState2", "stomach");
-            }
-            if (mPreferences.getString(SKIN_UNLOCKED, null).equals("skin_unlocked")) {
-                btn_skin.setEnabled(true);
-                Log.i("infoState3", "skin");
-            }
-        }
-
         if (getIntent().getExtras() != null) {
             String activityFrom = (String) getIntent().getStringExtra(TAG_ACTIVITY_FROM);
             Log.i("infoState4", activityFrom);
             if (activityFrom.equals("From cough cold")) {
                 Log.i("infoState5", activityFrom);
-                //btn_otic_ophthalmic.setEnabled(true);
                 preferencesEditor.putString(EYE_UNLOCKED, "eye_unlocked").apply();
             } else if (activityFrom.equals("From eye")) {
                 Log.i("infoState6", activityFrom);
-                //btn_pain.setEnabled(true);
                 preferencesEditor.putString(PAIN_UNLOCKED, "pain_unlocked").apply();
             } else if (activityFrom.equals("From pain")) {
                 Log.i("infoState7", activityFrom);
-                //btn_gastrointestinal.setEnabled(true);
                 preferencesEditor.putString(STOMACH_UNLOCKED, "stomach_unlocked").apply();
             } else if (activityFrom.equals("From stomach")) {
                 Log.i("infoState8", activityFrom);
-                //btn_skin.setEnabled(true);
                 preferencesEditor.putString(SKIN_UNLOCKED, "skin_unlocked").apply();
             } else {
                 Log.i("infoState5", "hey");
+            }
+        }
+
+        // Restore preferences
+        if (getIntent().getExtras() != null) {
+            if (Objects.equals(mPreferences.getString(EYE_UNLOCKED, null), "eye_unlocked")) {
+                btn_otic_ophthalmic.setEnabled(true);
+                Log.i("infoState0", "eye");
+            }
+            if (Objects.equals(mPreferences.getString(PAIN_UNLOCKED, null), "pain_unlocked")) {
+                btn_pain.setEnabled(true);
+                Log.i("infoState1", "pain");
+            }
+            if (Objects.equals(mPreferences.getString(STOMACH_UNLOCKED, null), "stomach_unlocked")) {
+                btn_gastrointestinal.setEnabled(true);
+                Log.i("infoState2", "stomach");
+            }
+            if (Objects.equals(mPreferences.getString(SKIN_UNLOCKED, null), "skin_unlocked")) {
+                btn_skin.setEnabled(true);
+                Log.i("infoState3", "skin");
             }
         }
     }
