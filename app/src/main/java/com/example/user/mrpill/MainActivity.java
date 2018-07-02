@@ -66,21 +66,23 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
 
         // Restore preferences
-        if (mPreferences.getString(EYE_UNLOCKED, null).equals("eye_unlocked")) {
-            btn_otic_ophthalmic.setEnabled(true);
-            Log.i("infoState0", "eye");
-        }
-        if (mPreferences.getString(PAIN_UNLOCKED, null).equals("pain_unlocked")) {
-            btn_pain.setEnabled(true);
-            Log.i("infoState1", "pain");
-        }
-        if (mPreferences.getString(STOMACH_UNLOCKED, null).equals("stomach_unlocked")) {
-            btn_gastrointestinal.setEnabled(true);
-            Log.i("infoState2", "stomach");
-        }
-        if (mPreferences.getString(SKIN_UNLOCKED, null).equals("skin_unlocked")) {
-            btn_skin.setEnabled(true);
-            Log.i("infoState3", "skin");
+        if (getIntent().getExtras() != null) {
+            if (mPreferences.getString(EYE_UNLOCKED, null).equals("eye_unlocked")) {
+                btn_otic_ophthalmic.setEnabled(true);
+                Log.i("infoState0", "eye");
+            }
+            if (mPreferences.getString(PAIN_UNLOCKED, null).equals("pain_unlocked")) {
+                btn_pain.setEnabled(true);
+                Log.i("infoState1", "pain");
+            }
+            if (mPreferences.getString(STOMACH_UNLOCKED, null).equals("stomach_unlocked")) {
+                btn_gastrointestinal.setEnabled(true);
+                Log.i("infoState2", "stomach");
+            }
+            if (mPreferences.getString(SKIN_UNLOCKED, null).equals("skin_unlocked")) {
+                btn_skin.setEnabled(true);
+                Log.i("infoState3", "skin");
+            }
         }
 
         if (getIntent().getExtras() != null) {
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             if (activityFrom.equals("From cough cold")) {
                 Log.i("infoState5", activityFrom);
                 //btn_otic_ophthalmic.setEnabled(true);
-                preferencesEditor.putString(EYE_UNLOCKED, "eye_unlocked");
+                preferencesEditor.putString(EYE_UNLOCKED, "eye_unlocked").apply();
             } else if (activityFrom.equals("From eye")) {
                 Log.i("infoState6", activityFrom);
                 //btn_pain.setEnabled(true);
