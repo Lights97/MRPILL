@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizzesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="6">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_subrayada_bold"
+            android:gravity="center"
+            android:padding="15sp"
+            android:text="Categories"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btn_coughCold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="1"
+            android:text="@string/cough_and_cold"
+            android:background="@color/color2"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_oticOphthalmic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="2"
+            android:background="@color/color1"
+            android:text="@string/dry_eyes" />
+
+        <Button
+            android:id="@+id/btn_pain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="3"
+            android:background="@color/color4"
+            android:text="@string/chronic_pain" />
+
+        <Button
+            android:id="@+id/btn_gastrointestinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:tag="4"
+            android:background="@color/color2"
+            android:text="@string/stomach_conditions" />
+
+        <Button
+            android:id="@+id/btn_skinConditions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="5"
+            android:text="@string/skin_conditions"
+            android:background="@color/color3"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</FrameLayout>
